@@ -26,13 +26,13 @@ sed -i.bak -e 's/>//g' decoys.txt
 # concatenating the transcriptome and genome reference
 cat *transcriptome.fa *genome.fasta > *_for_index.fa
 
-# build the index with the command below we use the gencode tag just in case any extra metadata is in there which is likely with GFF3
+# build the initial index
 salmon index -t *_for_index.fa -d decoys.txt -p 12 -i salmon_index --gencode
 
-# now we build the transcript index >>>> This is actually the same thing but the -k option can help in cases of low complexity or short sequences, supposedly the top option is more standard
+# now we build the transcript index
 salmon index -t S11_for_index.fa -i transcripts_index --decoys decoys.txt -k 31
 
-# once generated your salmon_index file and put into the correct file structure you can run this pipeline by snakemake --use-conda --conda-frontend conda --cores 8 --printshellcmds which will filter, qc, remove rrna and build quant files which can directly be imported into r for Deseq2 analysis 
+once generated your salmon_index file and put into the correct file structure you can run this pipeline by snakemake --use-conda --conda-frontend conda --cores 8 --printshellcmds which will filter, qc, remove rrna and build quant files which can directly be imported into r for Deseq2 analysis 
 
 
 
