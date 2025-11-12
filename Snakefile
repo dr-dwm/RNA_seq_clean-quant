@@ -104,3 +104,4 @@ rule quantify_expression:
 
         cp {RESULTS_DIR}/{{wildcards.sample}}_salmon_out/quant.sf {output.quant_file}
         """
+### activate pipeline with: snakemake --cores 48 --jobs 6 --use-conda --conda-frontend conda --rerun-incomplete --printshellcmds
