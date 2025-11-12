@@ -1,6 +1,9 @@
 # RNA_seq_clean-quant
 This is a snakemake pipeline which will take in raw RNAseq reads, filter them, remove the ribosomal rRNA and then align them to a salmon index. There is code on how to make your own salmon index in the supporting docs
 
+# update 
+the initial snakemake file worked well however on scaling up it became prone to crashing, this update provides stability by completing steps for all files input with memeory limitations to prevent crashing.
+
 The structure of the files needs to be as below
 Working directory
 > snakemake
